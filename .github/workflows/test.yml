@@ -10,6 +10,15 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           build: npm run build
-          start: npm start
-
-    
+          start: npm 
+  node-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Initialize Node
+        uses: actions/setup-node
+      - name: Install Node Packages
+        run: npm ci
+      - name: Build App
+        run: npm run build   
